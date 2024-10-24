@@ -76,4 +76,27 @@ public class CustomListTest {
         assertTrue(actualMessage.contains(expectedMessage), "Exception message should indicate city not found");
         assertEquals(1, cityList.getCount(), "City count should remain 1 after failed deletion");
     }
+
+    @Test
+    public void testCountCities() {
+        ArrayList<City> cities = new ArrayList<>();
+        CustomList cityList = new CustomList(null, cities);
+        assertEquals(0, cityList.countCities(), "Initial city count should be 0");
+
+        City city2 = new City("Montreal", "Quebec");
+        ArrayList<City> cities2 = new ArrayList<>();
+        cities2.add(city2);
+        CustomList citiesList2 = new CustomList(null, cities2);
+        assertEquals(1, cityList.countCities(), "City count should be 1 after adding Montreal");
+
+        City city3 = new City("Quebec City", "Quebec");
+        ArrayList<City> cities3 = new ArrayList<>();
+        cities3.add(city2);
+        cities3.add(city3);
+        CustomList citiesList3 = new CustomList(null, cities3);
+        assertEquals(2, cityList.countCities(), "City count should be 2 after adding Quebec City");
+
+        cityList.deleteCity(city3);
+        assertEquals(1, cityList.countCities(), "City count should be 1 after deleting Quebec City");
+    }
 }
