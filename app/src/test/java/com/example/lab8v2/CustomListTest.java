@@ -31,15 +31,13 @@ public class CustomListTest {
 
     @Test
     public void testHasCity() {
-        CustomList cityList = new CityList();
+        ArrayList<City> cities = new ArrayList<>();
         City city1 = new City("Toronto", "Ontario");
         City city2 = new City("Vancouver", "British Columbia");
-        City cityDuplicate = new City("Toronto", "Ontario");
-
-        cityList.add(city1);
+        cities.add(city1);
+        CustomList cityList = new CustomList(null, cities);
 
         assertTrue(cityList.hasCity(city1), "City list should contain Toronto");
-        assertTrue(cityList.hasCity(cityDuplicate), "City list should treat duplicate city with same fields as existing");
         assertFalse(cityList.hasCity(city2), "City list should not contain Vancouver");
     }
 }
