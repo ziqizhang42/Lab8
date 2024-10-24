@@ -87,16 +87,16 @@ public class CustomListTest {
         ArrayList<City> cities2 = new ArrayList<>();
         cities2.add(city2);
         CustomList citiesList2 = new CustomList(null, cities2);
-        assertEquals(1, cityList.countCities(), "City count should be 1 after adding Montreal");
+        assertEquals(1, citiesList2.countCities(), "City count should be 1 after adding Montreal");
 
         City city3 = new City("Quebec City", "Quebec");
         ArrayList<City> cities3 = new ArrayList<>();
         cities3.add(city2);
         cities3.add(city3);
         CustomList citiesList3 = new CustomList(null, cities3);
-        assertEquals(2, cityList.countCities(), "City count should be 2 after adding Quebec City");
+        assertEquals(2, citiesList3.countCities(), "City count should be 2 after adding Quebec City");
 
-        cityList.deleteCity(city3);
-        assertEquals(1, cityList.countCities(), "City count should be 1 after deleting Quebec City");
+        citiesList3.deleteCity(city3);
+        assertEquals(1, citiesList3.countCities(), "City count should be 1 after deleting Quebec City");
     }
 }
